@@ -1,3 +1,5 @@
-﻿  stdafx.cpp
-  CPPGame.cpp
-  CppGame.vcxproj -> C:\Users\aArtuz\Desktop\CppGameSolution\Debug\CppGame.exe
+﻿  Stats.cpp
+c:\users\aj\desktop\cppgamesolution\cppgame\stats.h(23): error C2535: 'void Stats::setHP(unsigned int)': member function already defined or declared
+  c:\users\aj\desktop\cppgamesolution\cppgame\stats.h(17): note: see declaration of 'Stats::setHP'
+c:\users\aj\desktop\cppgamesolution\cppgame\stats.h(24): error C2535: 'unsigned int Stats::getHP(void)': member function already defined or declared
+  c:\users\aj\desktop\cppgamesolution\cppgame\stats.h(18): note: see declaration of 'Stats::getHP'

@@ -1,43 +1,65 @@
-#pragma once
 #ifndef STATS_H
 #define STATS_H
-
+#include <iostream>
 #include <string>
+#include <sstream>
+using namespace std;
 
 class Stats {
 public:
-	Stats(const std::string&, const std::string&, const unsigned int&,
-		const unsigned int&, const unsigned int&, const unsigned int&);
+	Stats(string Name, unsigned int health, unsigned int speed, unsigned int wit, unsigned int brawn, string Blurb)
+		: name(Name), hp(health), s(speed), w(wit), b(brawn), blurb(Blurb) {}
 
-	//BEGIN GETTERS AND SETTERS
-	void setName(const std::string&);
-	std::string getName() const;
+	void setName(string Name) { name = Name; }
 
-	void setTextBlurb(const std::string&);
-	std::string getTextBlurb() const;
+	string getName() { return name; }
 
-	void setHP(const unsigned int&);
-	unsigned int getHP() const;
+	void setHP(unsigned int HP) { hp = HP; }
+	unsigned int getHP() { return hp; }
 
-	void setS(const unsigned int&);
-	unsigned int getS() const;
+	void setS(unsigned int S) { s = S; }
+	unsigned int getS() { return s; }
 
-	void setW(const unsigned int&);
-	unsigned int getW() const;
+	void setBlurb(string Blurb) { blurb = Blurb; }
 
-	void setB(const unsigned int&);
-	unsigned int getB() const;
-	//END GETTERS AND SETTERS
+	unsigned int roll(unsigned int numberOfRolls) { //simulates rolls of a six-sided dice
 
-private:
-	std::string name;
-	std::string textBlurb;
-	unsigned int hp;//hit points
-	unsigned int s;//speed
-	unsigned int w;//wit
-	unsigned int b;//brawn
+	}
+
+	string toString() const {
+		ostringstream output;
+		output << name << endl
+			<< blurb << endl
+			<< "HP: " << hp << endl
+			<< "Speed: " << s << endl
+			<< "Wit: " << w << endl
+			<< "Brawn: " << b << endl;
+		return output.str();
+	}
+
+	void setIsDead(bool Dead) { isDead = Dead; }
+
+	void dealDamage() {
+		//insert dmg function...
+	}
+
+	void takeDamage(unsigned int damage) {
+		setHP(getHP() - damage);
+		if ((getHP() <= 0) && !isDead) {
+			setIsDead(true);
+		}
+	}
+
+protected:
+	string name;
+	unsigned int hp; //hit point / health
+	unsigned int s;  //speed
+	unsigned int w;  //wit
+	unsigned int b;  //brawn
+	//string attackingStat[s, b, w];
+	//string defendingStat[s, b, w];
+	bool isDead{ false };
+	string blurb; //text blurb for the item / player / enemy
 };
 
-
-
-#endif
+#endif STATS_H
