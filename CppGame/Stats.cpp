@@ -4,25 +4,86 @@
 #include <random>
 #include <iomanip>
 #include "Stats.h"
-
 using namespace std;
 
-/*
-void Stats::setName(const string& recievedName) {
-	name = recievedName;
+Stats::Stats(string Name, unsigned int health, unsigned int speed, unsigned int wit, unsigned int brawn, string Blurb, unsigned int aStat, unsigned int dStat)
+	: name(Name), hp(health), s(speed), w(wit), b(brawn), blurb(Blurb), attackingStat(aStat), defendingStat(dStat) {};
+
+//begin getters and setters
+void Stats::setName(string Name) { name = Name; }
+string Stats::getName() { return name; }
+
+void Stats::setHP(unsigned int HP) { hp = HP; }
+unsigned int Stats::getHP() { return hp; }
+
+void Stats::setStat(unsigned int selector, unsigned int change) {
+	switch (selector) {
+	case 1://its speed
+		s = change;
+		break;
+	case 2://its wit
+		w = change;
+		break;
+	case 3://its brawn
+		b = change;
+		break;
+	default:
+		cout << "Setter machine broke";//it :b:roke
+	}
 }
-void Stats::setTextBlurb(const string& recievedText);
-std::string getTextBlurb() const;
 
-void setHP(const unsigned int&);
-unsigned int getHP() const;
+const unsigned int Stats::getStat(unsigned int selector) {
+	switch (selector) {
+	case 1://its speed
+		return s;
+		break;
+	case 2://its wit
+		return w;
+		break;
+	case 3://its brawn
+		return b;
+		break;
+	default:
+		return 0;
+		cout << "getter machine broke";//it :b:roke
+	}
+}
 
-void setS(const unsigned int&);
-unsigned int getS() const;
+void Stats::setBlurb(string Blurb) { blurb = Blurb; }
 
-void setW(const unsigned int&);
-unsigned int getW() const;
+unsigned int Stats::roll(unsigned int numberOfRolls) { //simulates rolls of a six-sided dice
+	unsigned int sum{ 0 };
+	for (unsigned int i{ 1 };i <= numberOfRolls;i++) {
+		sum += (rand() % 6) + 1;
+	}
+	return sum;
+}
 
-void setB(const unsigned int&);
-unsigned int getB() const;
-*/
+string Stats::toString() const {
+	ostringstream output;
+	output << name << endl
+		<< blurb << endl
+		<< "HP: " << hp << endl
+		<< "Speed: " << s << endl
+		<< "Wit: " << w << endl
+		<< "Brawn: " << b << endl;
+	return output.str();
+}
+
+void Stats::setIsDead(bool Dead) { isDead = Dead; }
+
+void Stats::dealDamage(Stats& target) {
+	unsigned int damage = roll(getStat(attackingStat));
+	target.takeDamage(damage);
+}
+
+void Stats::takeDamage(unsigned int damage) {
+	damage = damage - roll(getStat(defendingStat));
+	if (damage >= hp) {
+		hp = 0;
+	}
+	else {
+		hp -= damage;
+	}
+}
+
