@@ -6,11 +6,11 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include <ctime>
 
 class Stats {
 public:
-	Stats(std::string, unsigned int, unsigned int, unsigned int, unsigned int, std::string, unsigned int, unsigned int);
+	Stats(std::string, unsigned int, unsigned int, 
+		unsigned int, unsigned int, std::string, unsigned int, unsigned int);
 
 	//begin getters and setters
 	void setName(std::string);
