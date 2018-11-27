@@ -6,10 +6,10 @@
 #include "Stats.h"
 using namespace std;
 
-class Spellcard : private Item {
+class Spellcard : public Item {
 public:
 	Spellcard()
-		: Stats("no - name", 10, (rand() % 5), (rand() % 5), (rand() % 5), "this is a blurb")
+		: Item()
 	{
 		setRandSpell();
 		setTemp(true);

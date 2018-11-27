@@ -6,7 +6,8 @@
 #include "Stats.h"
 using namespace std;
 
-Stats::Stats(string Name, unsigned int health, unsigned int speed, unsigned int wit, unsigned int brawn, string Blurb, unsigned int aStat, unsigned int dStat)
+Stats::Stats(string Name, unsigned int health, unsigned int speed, unsigned int wit, 
+	unsigned int brawn, string Blurb, unsigned int aStat, unsigned int dStat)
 	: name(Name), hp(health), s(speed), w(wit), b(brawn), blurb(Blurb), attackingStat(aStat), defendingStat(dStat) {};
 
 //begin getters and setters
@@ -87,3 +88,7 @@ void Stats::takeDamage(unsigned int damage) {
 	}
 }
 
+const unsigned int Stats::getAttacking() {return attackingStat;}
+const unsigned int Stats::getDefending() {return defendingStat;}
+void Stats::setAttackingStat(unsigned int a) { attackingStat = a; }
+void Stats::setDefendingStat(unsigned int d) { defendingStat = d; }

@@ -19,7 +19,7 @@ public:
 
 	void addToSpells(Spellcard&);
 
-	void equip(Item& item);
+	void equip(Item&);
 
 	void unequip(Item&);
 private:
@@ -28,6 +28,11 @@ private:
 	unsigned int pI; // base inventory space available at a time for the player
 	vector<Item> inventory;  // this will be a vector so we can use append / push_back whatever it’s called..
 	vector<Spellcard> spells; //the spellcard inventory
+
+	bool equippedArmor{ false };
+	bool equippedWeapon{ false };
+
+	void changeStats(Item&,bool);
 };
 
 #endif PLAYER_H

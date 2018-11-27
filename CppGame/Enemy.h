@@ -5,7 +5,7 @@
 #include "Stats.h"
 using namespace std;
 
-class Enemy : private Stats {
+class Enemy : public Stats {
 public:
 	Enemy()
 		: Stats("no - name", 10, (rand() % 10), (rand() % 10), (rand() % 10), "this is a blurb")

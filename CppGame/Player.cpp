@@ -7,7 +7,7 @@
 #include "Player.h"
 
 Player::Player(string Name, unsigned int pH, unsigned int pS, unsigned int pW, unsigned int pB, string pBlurb)
-	: Stats(Name, pH, pS, pW, pB, pBlurb) {};
+	: Stats(Name, pH, pS, pW, pB, pBlurb,3,1) {};
 
 void Player::getEquipChoice() {
 	/*
@@ -20,7 +20,7 @@ void Player::getEquipChoice() {
 	totalB = armorB + weaponB;
 	totalS = armorS + weaponS;
 	totalW = armorW + weaponW;
-	maybe serepate the each to different function
+	//maybe serepate the each to different function
 	*/
 }
 
@@ -33,24 +33,62 @@ void Player::addToSpells(Spellcard& spell) {
 } //add new found spell(s) to the spell section
 
 void Player::equip(Item& item) {
-	/*
-	hp += item.getHp();
-	s += item.getS();
-	w += item.getW();
-	b += item.getB();
-	if (item.temp == true) {
+	if (item.getType() == "item") {
+		changeStats(item, true);
+	}
+	else if ((item.getType() == "armor" && !equippedArmor)) {
+		changeStats(item, true);
+		defendingStat = item.getDefending();
+		equippedArmor = true;
+	}
+	else if ((item.getType() == "weapon" && !equippedWeapon)) {
+		changeStats(item, true);
+		attackingStat = item.getAttacking();
+		equippedWeapon = true;
+	}
+	else {
+		cout << "\nUnable to equip type: " << item.getType() << " try unequipping an item first.\n";
+	}
+
+	if (item.getTemp() == true) {
 		inventory.erase(item);
 	}
-	if (item.temp != true) { item.setEquipState(true); }
-	*/
+	if (item.getTemp() != true) { item.setEquipState(true); }
 }
 
 void Player::unequip(Item& item) {
-	/*
-	hp -= item.hp;
-	s -= item.s;
-	w -= item.w;
-	b -= item.b;
+	if (item.getType() == "item") {
+		changeStats(item, false);
+	}
+	else if ((item.getType() == "armor" && equippedArmor)) {
+		changeStats(item, false);
+		defendingStat = 1;//default speed
+		equippedArmor = false;
+	}
+	else if ((item.getType() == "weapon" && equippedWeapon)) {
+		changeStats(item, false);
+		attackingStat = 3;//default brawn
+		equippedWeapon = false;
+	}
 	item.setEquipState(false);
-	*/
+}
+
+void Player::changeStats(Item& item, bool isAdding) {
+	if (isAdding) {
+		hp += item.getHP();
+		s += item.getStat(1);
+		w += item.getStat(2);
+		b += item.getStat(3);
+	}
+	else {//safetey measure incase if a stat goes below 0
+		if (item.getStat(1) >= s) { s = 0; }
+		else { s -= item.getStat(1); }
+
+		if (item.getStat(2) >= w) { w = 0; }
+		else { w -= item.getStat(2); }
+
+		if (item.getStat(3) >= b) { b = 0; }
+		else { b -= item.getStat(3); }
+	}
+
 }

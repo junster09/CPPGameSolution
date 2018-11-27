@@ -35,7 +35,12 @@ public:
 
 	void takeDamage(unsigned int damage);
 
-private:
+	const unsigned int getAttacking();
+	void setAttackingStat(unsigned int);
+	const unsigned int getDefending();
+	void setDefendingStat(unsigned int);
+
+protected:
 	std::string name;
 	unsigned int hp; //hit point / health
 	unsigned int s;  //speed
