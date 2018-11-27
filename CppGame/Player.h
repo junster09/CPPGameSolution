@@ -8,57 +8,20 @@
 #include "Spellcard.h"
 using namespace std;
 
-class Player : protected Stats {
+class Player : public Stats {
 public:
-	Player(string Name, unsigned int pH, unsigned int pS, unsigned int pW, unsigned int pB, string pBlurb)
-		: Stats(Name, pH, pS, pW, pB, pBlurb) {}
+	Player(string, unsigned int, unsigned int, unsigned int, unsigned int, string);
 
 
-	void getEquipChoice() {
-		/*
-		armorB = player.armorE; //get equiped armor’s brawn
-		armorS = player.armorE; //get equiped armor’s speed
-		armorW = player.armorE; //get equiped armor’s wit
-		weaponB = player.weaponE; //get equiped weapon’s brawn
-		weaponS = player.weaponE; //get equiped weapon’s speed
-		weaponW = player.weaponE; //get equiped wepaon’s wit
-		totalB = armorB + weaponB;
-		totalS = armorS + weaponS;
-		totalW = armorW + weaponW;
-		maybe serepate the each to different function
-		*/
-	}
+	void getEquipChoice();
 
-	void addToInventory(Item& item) {
-		inventory.push_back(item);
-	} //add new found item to the inventory
+	void addToInventory(Item&);
 
-	void addToSpells(Spellcard& spell) {
-		spells.push_back(spell);
-	} //add new found spell(s) to the spell section
+	void addToSpells(Spellcard&);
 
-	void equip(Item& item) {
-		/*
-		hp += item.getHp();
-		s += item.getS();
-		w += item.getW();
-		b += item.getB();
-		if (item.temp == true) {
-			inventory.erase(item);
-		}
-		if (item.temp != true) { item.setEquipState(true); }
-		*/
-	}
+	void equip(Item& item);
 
-	void unequip(Item& item) {
-		/*
-		hp -= item.hp;
-		s -= item.s;
-		w -= item.w;
-		b -= item.b;
-		item.setEquipState(false);
-		*/
-	}
+	void unequip(Item&);
 private:
 	unsigned int pML; //the player’s max level
 	unsigned int pMHP; //max hit point a player can have
