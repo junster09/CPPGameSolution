@@ -8,14 +8,11 @@ class Room {
 public:
 	Room() { setRandName(); setNumber(1); }
 
-	void setNumber(int Number) { roomNumber = Number; }
-	int getNumber() { return roomNumber; }
+	void setNumber(int Number);
+	int getNumber();
 
-	void setRandName() {
-		string roomNames[10] = { "My Room", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
-		name = roomNames[(rand() % 10)];
-	}
-	string getName() { return name; }
+	void setRandName();
+	string getName();
 
 	Room& operator++() {
 		++roomNumber;
@@ -23,10 +20,7 @@ public:
 		return *this;
 	}
 
-	void toString() {
-		cout << "Room: " << name << endl
-			<< "# : " << roomNumber << endl;
-	}
+	void toString();
 
 private:
 	string name;
