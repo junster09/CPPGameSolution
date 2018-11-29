@@ -7,19 +7,13 @@ using namespace std;
 
 class Enemy : public Stats {
 public:
-	Enemy()
+	Enemy() 
 		: Stats("no - name", 10, (rand() % 10), (rand() % 10), (rand() % 10), "this is a blurb")
 	{
 		setRandEnemy();
 	}
 
-	void setRandEnemy() {
-		string enemyNames[10] = { "witch", "..." };
-		string enemyBlurb[10] = { "this is a witch!", "..." }; //matches indexes of enemy names
-		size_t randEnemy = (rand() % 10 + 1);
-		setName(enemyNames[randEnemy]);
-		setBlurb(enemyBlurb[randEnemy]);
-	}
+	void setRandEnemy();
 };
 
 #endif ENEMY_H

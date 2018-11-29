@@ -158,7 +158,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CPPGame.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Room.cpp" />
+    <ClCompile Include="Spellcard.cpp" />
     <ClCompile Include="Stats.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
