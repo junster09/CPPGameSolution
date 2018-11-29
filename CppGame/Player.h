@@ -1,7 +1,5 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#include <iostream>
-#include <string>
 #include <vector>
 #include "Stats.h"
 #include "Item.h"
@@ -15,13 +13,16 @@ public:
 
 	void getEquipChoice();
 
-	void addToInventory(Item&);
+	void addToInventory(Item);
 
-	void addToSpells(Spellcard&);
+	void addToSpells(Spellcard);
 
 	void equip(Item&);
 
 	void unequip(Item&);
+
+	void showInventory();
+
 private:
 	unsigned int pML; //the player’s max level
 	unsigned int pMHP; //max hit point a player can have

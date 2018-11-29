@@ -1,9 +1,6 @@
 #include "stdafx.h"
-#include <string>
-#include <iostream>
 #include <random>
 #include <iomanip>
-#include "Stats.h"
 #include "Player.h"
 
 Player::Player(string Name, unsigned int pH, unsigned int pS, unsigned int pW, unsigned int pB, string pBlurb)
@@ -24,11 +21,11 @@ void Player::getEquipChoice() {
 	*/
 }
 
-void Player::addToInventory(Item& item) {
+void Player::addToInventory(Item item) {
 	inventory.push_back(item);
 } //add new found item to the inventory
 
-void Player::addToSpells(Spellcard& spell) {
+void Player::addToSpells(Spellcard spell) {
 	spells.push_back(spell);
 } //add new found spell(s) to the spell section
 
@@ -51,7 +48,7 @@ void Player::equip(Item& item) {
 	}
 
 	if (item.getTemp() == true) {
-		inventory.erase(item);
+		//inventory.erase(item);
 	}
 	if (item.getTemp() != true) { item.setEquipState(true); }
 }
@@ -91,4 +88,18 @@ void Player::changeStats(Item& item, bool isAdding) {
 		else { b -= item.getStat(3); }
 	}
 
+}
+
+void Player::showInventory() {
+	if (inventory.size() <= 0) {
+		cout << "\nEMPTY" << endl;
+	}
+	else {
+		for (size_t i{ 0 }; i < inventory.size();i++) {
+			if (0 == i % 5) {
+				cout << endl;
+			}
+			cout << " " << inventory[i].getName() << " ";
+		}
+	}
 }

@@ -1,7 +1,5 @@
 #ifndef ITEM_H
 #define ITEM_H
-#include <iostream>
-#include <string>
 #include "Stats.h"
 using namespace std;
 

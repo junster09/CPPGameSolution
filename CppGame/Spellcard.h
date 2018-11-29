@@ -1,9 +1,6 @@
 #ifndef SPELLCARD_H
 #define SPELLCARD_H
-#include <iostream>
-#include <string>
 #include "Item.h"
-#include "Stats.h"
 using namespace std;
 
 class Spellcard : public Item {

@@ -62,12 +62,14 @@ unsigned int Stats::roll(unsigned int numberOfRolls) { //simulates rolls of a si
 
 string Stats::toString() const {
 	ostringstream output;
-	output << name << endl
+	output << "Name: " << name << endl
 		<< blurb << endl
 		<< "HP: " << hp << endl
 		<< "Speed: " << s << endl
 		<< "Wit: " << w << endl
-		<< "Brawn: " << b << endl;
+		<< "Brawn: " << b << endl
+		<< "Attacks with: " << attackingDefendingStats[attackingStat] << endl
+		<< "Defends with: " << attackingDefendingStats[defendingStat] << endl;
 	return output.str();
 }
 
@@ -80,12 +82,15 @@ void Stats::dealDamage(Stats& target) {
 
 void Stats::takeDamage(unsigned int damage) {
 	damage = damage - roll(getStat(defendingStat));
+	cout << "\n" << name << " took " << damage << " damage!";
 	if (damage >= hp) {
+		cout << " and died";
 		hp = 0;
 	}
 	else {
 		hp -= damage;
 	}
+	cout << endl;
 }
 
 const unsigned int Stats::getAttacking() {return attackingStat;}

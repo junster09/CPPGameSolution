@@ -1,7 +1,10 @@
-﻿  Player.cpp
-c:\users\aj\desktop\cppgamesolution\cppgame\player.cpp(54): error C2664: 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::erase(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>)': cannot convert argument 1 from 'Item' to 'std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>'
-          with
-          [
-              _Ty=Item
-          ]
-  c:\users\aj\desktop\cppgamesolution\cppgame\player.cpp(54): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+﻿  CPPGame.cpp
+  Enemy.cpp
+  Item.cpp
+  Player.cpp
+  Room.cpp
+  Spellcard.cpp
+  Stats.cpp
+  Generating Code...
+c:\users\aj\desktop\cppgamesolution\cppgame\room.cpp(83): warning C4715: 'Room::RoomAction': not all control paths return a value
+  CppGame.vcxproj -> C:\Users\aj\Desktop\CppGameSolution\Debug\CppGame.exe
