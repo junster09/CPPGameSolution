@@ -46,7 +46,8 @@ protected:
 	unsigned int s;  //speed
 	unsigned int w;  //wit
 	unsigned int b;  //brawn
-	std::string attackingDefendingStats[4] { "shhh","Speed", "Wit", "Brawn" };
+	std::string attackingDefendingStats[4] { "shhh",
+		"Speed", "Wit", "Brawn" };
 	unsigned int attackingStat;
 	unsigned int defendingStat;
 	bool isDead{ false };

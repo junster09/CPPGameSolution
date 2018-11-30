@@ -22,11 +22,9 @@ void Player::getEquipChoice() {
 }
 
 void Player::addToInventory(Item item) {
-	inventory.push_back(item);
 } //add new found item to the inventory
 
 void Player::addToSpells(Spellcard spell) {
-	spells.push_back(spell);
 } //add new found spell(s) to the spell section
 
 void Player::equip(Item& item) {
@@ -36,19 +34,20 @@ void Player::equip(Item& item) {
 	else if ((item.getType() == "armor" && !equippedArmor)) {
 		changeStats(item, true);
 		defendingStat = item.getDefending();
+		cout << "\nArmor Equipped!";
 		equippedArmor = true;
 	}
 	else if ((item.getType() == "weapon" && !equippedWeapon)) {
 		changeStats(item, true);
 		attackingStat = item.getAttacking();
 		equippedWeapon = true;
+		cout << "\nWeapon Equipped!";
 	}
 	else {
 		cout << "\nUnable to equip type: " << item.getType() << " try unequipping an item first.\n";
 	}
 
 	if (item.getTemp() == true) {
-		//inventory.erase(item);
 	}
 	if (item.getTemp() != true) { item.setEquipState(true); }
 }
@@ -91,15 +90,13 @@ void Player::changeStats(Item& item, bool isAdding) {
 }
 
 void Player::showInventory() {
-	if (inventory.size() <= 0) {
-		cout << "\nEMPTY" << endl;
-	}
-	else {
-		for (size_t i{ 0 }; i < inventory.size();i++) {
-			if (0 == i % 5) {
-				cout << endl;
-			}
-			cout << " " << inventory[i].getName() << " ";
-		}
-	}
+	itemBag.display();
+}
+
+Inventory* Player::getItemBag() {
+	return &itemBag;
+}
+
+Inventory* Player::getSpellBag(){
+	return &spellBag;
 }

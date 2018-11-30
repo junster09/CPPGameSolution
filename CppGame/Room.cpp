@@ -56,8 +56,7 @@ bool Room::ChallengePlayerStat(Player* player) {
 }
 
 void Room::RewardPlayer(Player* player) {
-	Item newItem;
-	player->addToInventory(newItem);
+	player->getItemBag()->AddNewRandomItem();
 }
 
 Room& Room::operator++() {

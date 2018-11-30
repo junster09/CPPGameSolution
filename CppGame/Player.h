@@ -4,6 +4,7 @@
 #include "Stats.h"
 #include "Item.h"
 #include "Spellcard.h"
+#include "Inventory.h"
 using namespace std;
 
 class Player : public Stats {
@@ -23,13 +24,18 @@ public:
 
 	void showInventory();
 
+	Inventory* getItemBag();
+
+	Inventory* getSpellBag();
+
 private:
 	unsigned int pML; //the player’s max level
 	unsigned int pMHP; //max hit point a player can have
 	unsigned int pI; // base inventory space available at a time for the player
-	vector<Item> inventory;  // this will be a vector so we can use append / push_back whatever it’s called..
-	vector<Spellcard> spells; //the spellcard inventory
-
+	//vector<Item> inventory;  // this will be a vector so we can use append / push_back whatever it’s called..
+	//vector<Spellcard> spells; //the spellcard inventory
+	Inventory itemBag;
+	Inventory spellBag;
 	bool equippedArmor{ false };
 	bool equippedWeapon{ false };
 

@@ -81,8 +81,16 @@ void Stats::dealDamage(Stats& target) {
 }
 
 void Stats::takeDamage(unsigned int damage) {
-	damage = damage - roll(getStat(defendingStat));
+	unsigned int defendRoll = roll(getStat(defendingStat));
+	if (damage <= defendRoll) {
+		damage = 0;
+	}
+	else {
+		damage = damage - defendRoll;
+	}
+
 	cout << "\n" << name << " took " << damage << " damage!";
+
 	if (damage >= hp) {
 		cout << " and died";
 		hp = 0;

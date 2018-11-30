@@ -1,10 +1,2 @@
-﻿  CPPGame.cpp
-  Enemy.cpp
-  Item.cpp
-  Player.cpp
-  Room.cpp
-  Spellcard.cpp
-  Stats.cpp
-  Generating Code...
-c:\users\aj\desktop\cppgamesolution\cppgame\room.cpp(83): warning C4715: 'Room::RoomAction': not all control paths return a value
+﻿  Item.cpp
   CppGame.vcxproj -> C:\Users\aj\Desktop\CppGameSolution\Debug\CppGame.exe

@@ -36,3 +36,4 @@ private:
 	unsigned int StatChallengeType{ 0 };
 };
 #endif ROOM_H
+
