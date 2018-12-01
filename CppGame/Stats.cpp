@@ -67,9 +67,7 @@ string Stats::toString() const {
 		<< "HP: " << hp << endl
 		<< "Speed: " << s << endl
 		<< "Wit: " << w << endl
-		<< "Brawn: " << b << endl
-		<< "Attacks with: " << attackingDefendingStats[attackingStat] << endl
-		<< "Defends with: " << attackingDefendingStats[defendingStat] << endl;
+		<< "Brawn: " << b << endl;
 	return output.str();
 }
 

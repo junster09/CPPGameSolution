@@ -23,7 +23,7 @@ string spellType[14] = { "Damage", "Damage", "Damage", "Damage",
 void Spellcard::setRandSpell() {
 
 	
-	size_t randIndex = (rand() % 14 + 1);
+	size_t randIndex = (rand() % 14);
 
 	setType(spellType[randIndex]);
 	//setName(spellNames[randIndex]);

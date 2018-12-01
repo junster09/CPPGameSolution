@@ -29,11 +29,13 @@ void Player::addToSpells(Spellcard spell) {
 
 void Player::equip(Item& item) {
 	if (item.getType() == "item") {
+		cout << "\nItem Equipped!";
 		changeStats(item, true);
 	}
 	else if ((item.getType() == "armor" && !equippedArmor)) {
 		changeStats(item, true);
 		defendingStat = item.getDefending();
+		curArmor = &item;
 		cout << "\nArmor Equipped!";
 		equippedArmor = true;
 	}
@@ -41,6 +43,7 @@ void Player::equip(Item& item) {
 		changeStats(item, true);
 		attackingStat = item.getAttacking();
 		equippedWeapon = true;
+		curWeapon = &item;
 		cout << "\nWeapon Equipped!";
 	}
 	else {
@@ -48,8 +51,8 @@ void Player::equip(Item& item) {
 	}
 
 	if (item.getTemp() == true) {
+		itemBag.RemoveFromItems(&item);
 	}
-	if (item.getTemp() != true) { item.setEquipState(true); }
 }
 
 void Player::unequip(Item& item) {
@@ -59,11 +62,13 @@ void Player::unequip(Item& item) {
 	else if ((item.getType() == "armor" && equippedArmor)) {
 		changeStats(item, false);
 		defendingStat = 1;//default speed
+		curArmor = nullptr;
 		equippedArmor = false;
 	}
 	else if ((item.getType() == "weapon" && equippedWeapon)) {
 		changeStats(item, false);
 		attackingStat = 3;//default brawn
+		curWeapon = nullptr;
 		equippedWeapon = false;
 	}
 	item.setEquipState(false);
@@ -99,4 +104,18 @@ Inventory* Player::getItemBag() {
 
 Inventory* Player::getSpellBag(){
 	return &spellBag;
+}
+
+string Player::toString() const {
+	ostringstream output;
+	output << Stats::toString()
+		<< "Attacks with: " << attackingDefendingStats[attackingStat] << endl
+		<< "Defends with: " << attackingDefendingStats[defendingStat] << endl;
+	if (curArmor != nullptr) {
+		output << "Current Armor: " << curArmor->getName() << endl;
+	}
+	if (curWeapon != nullptr) {
+		output << "Current Weapon: " << curWeapon->getName() << endl;
+	}
+	return output.str();
 }

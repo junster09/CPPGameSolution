@@ -13,7 +13,7 @@ unsigned int StatsTypeEnemyA[10] = { 1, 2, 3, 1, 2, 3, 1, 1, 1, 1 };
 unsigned int StatsTypeEnemyD[10] = { 1, 2, 3, 1, 2, 3, 1, 1, 1, 1 };
 
 void Enemy::setRandEnemy() {
-	size_t randEnemy = (rand() % 10 + 1);
+	size_t randEnemy = (rand() % 10);
 	setName(enemyNames[randEnemy]);
 	setBlurb(enemyBlurb[randEnemy]);
 	setAttackingStat(StatsTypeEnemyA[randEnemy]);

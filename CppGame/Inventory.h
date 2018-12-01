@@ -37,11 +37,11 @@ public:
 		int i = 0;
 
 		while (CurItem != nullptr) {
-			if (i % 5 == 0) {
+			if (i % 3 == 0) {
 				cout << "\n";
 			}
 
-			cout << CurItem->getName() << " ";
+			cout << CurItem->getName() << "  ";
 
 			CurItem = CurItem->getNextItemPtr();
 
@@ -58,6 +58,22 @@ public:
 			LastItem->setNextItemPtr(newItem);
 			LastItem = newItem;
 		}
+	}
+
+	void RemoveFromItems(Item* ItemToDestroy) {
+		if (isEmpty()) {
+			cout << "ITS ALL GONE ALREADY!";
+		}
+		CurItem = FirstItem;
+		while (CurItem != nullptr) {
+			if (CurItem->getNextItemPtr() == ItemToDestroy) {
+				CurItem->setNextItemPtr(ItemToDestroy->getNextItemPtr());
+				delete ItemToDestroy;
+				break;
+			}
+			CurItem = CurItem->getNextItemPtr();
+		}
+
 	}
 	//void AddNewItem() {}
 

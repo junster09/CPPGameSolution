@@ -30,7 +30,7 @@ void Room::toString() {
 }
 
 void Room::setRandRoom() {
-	size_t randRoom = (rand() % 10 + 1);
+	size_t randRoom = (rand() % 10);
 	setRandName(randRoom);
 	StatChallengeType = StatsTypeRooms[randRoom];
 

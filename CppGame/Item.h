@@ -12,17 +12,17 @@ public:
 
 	void setTemp(bool Temp);
 	bool getTemp();
-	string stringTemp();
+	string stringTemp() const;
 
 	void setType(string Type);
-	string getType();
+	string getType() const;
 
 	void setEquipState(bool State);
-	bool getEquipState();
+	bool getEquipState() const;
 
 	void setRandItem();
 
-	void ItemToString();
+	virtual std::string toString() const override;
 
 	Item* getNextItemPtr() const;
 	void setNextItemPtr(Item* tempPtr) { nextItemPtr = tempPtr; }

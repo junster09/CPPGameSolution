@@ -1,6 +1,5 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#include <vector>
 #include "Stats.h"
 #include "Item.h"
 #include "Spellcard.h"
@@ -28,6 +27,8 @@ public:
 
 	Inventory* getSpellBag();
 
+	virtual std::string toString() const override;
+
 private:
 	unsigned int pML; //the player’s max level
 	unsigned int pMHP; //max hit point a player can have
@@ -37,7 +38,9 @@ private:
 	Inventory itemBag;
 	Inventory spellBag;
 	bool equippedArmor{ false };
+	Item* curArmor{ nullptr };
 	bool equippedWeapon{ false };
+	Item* curWeapon{ nullptr };
 
 	void changeStats(Item&,bool);
 };

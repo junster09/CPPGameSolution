@@ -27,7 +27,7 @@ public:
 
 	unsigned int roll(unsigned int);
 
-	std::string toString() const;
+	virtual std::string toString() const;
 
 	void setIsDead(bool);
 

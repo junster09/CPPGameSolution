@@ -5,7 +5,7 @@
 using namespace std;
 
 string itemNames[10] = { "Normal Armor", "Stick", 
-"Dark Armor", "Big Stick", "An Armor", "An Sword", "thingy", "thingy2", "thingy3", "thingy5" };
+"Dark Armor", "Big Stick", "An Armor", "An Sword", "thingy", "thingy2", "thingy3", "thingy4" };
 
 string itemBlurb[10] = { "Normal Armor: an armor made of mesh or something",
 "Stick: a slightly sharp stick you found off of the ground", 
@@ -18,7 +18,7 @@ string itemBlurb[10] = { "Normal Armor: an armor made of mesh or something",
 "thingy3: something that you found on the ground, it makes a pleasant sound", 
 "thingy4: something that you found on the ground, it tastes like strawberries" };
 
-bool itemTemp[10] = { false,false,false,false,false,false,false,false,false,false };
+bool itemTemp[10] = { false,false,false,false,false,false,true,true,true,true };
 
 string itemType[10] = { "armor", "weapon", "armor", "weapon", "armor", "weapon", "item", "item", "item", "item" };
 
@@ -34,10 +34,10 @@ bool Item::getTemp() {
 	return temp; 
 }
 
-string Item::stringTemp() {
-	if (temp = true) { return "Temporary"; }
+string Item::stringTemp() const {
+	if (temp == true) { return "Yes"; }
 	else {
-		return "Permanent";
+		return "No";
 	}
 }
 
@@ -45,7 +45,7 @@ void Item::setType(string Type) {
 	type = Type;
 }
 
-string Item::getType() { 
+string Item::getType() const { 
 	return type;
 }
 
@@ -53,7 +53,7 @@ void Item::setEquipState(bool State) {
 	equip = State;
 }
 
-bool Item::getEquipState() {
+bool Item::getEquipState() const {
 	return equip;
 }
 
@@ -67,11 +67,12 @@ void Item::setRandItem() {
 	setDefendingStat(StatsType[randIndex]);
 }
 
-void Item::ItemToString() {
-	toString();
-	cout << "Is Temporary: " << stringTemp() << endl
+string Item::toString() const {
+	ostringstream output;
+	output <<"\n"<< Stats::toString()<<"Is Consumable: " << stringTemp() << endl
 		<< "Equip State : " << getEquipState() << endl
-		<< "Type : " << getType();
+		<< "Type : " << getType()<<"\n";
+	return output.str();
 }
 
 Item* Item::getNextItemPtr() const {
