@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string roomNames[10] = { "My Room", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+string roomNames[10] = { "My Room", "2", "3", "4", "5", "6", "7", "8", "9", "Bobs" };
 
 unsigned int StatsTypeRooms[10] = { 1, 2, 3, 1, 2, 3, 1, 1, 1, 1 };
 
@@ -25,8 +25,8 @@ string Room::getName() {
 }
 
 void Room::toString() {
-	cout << "Room: " << name << endl
-		<< "# : " << roomNumber << endl;
+	cout << "\tRoom: " << name << endl
+		<< "\t# : " << roomNumber << endl;
 }
 
 void Room::setRandRoom() {
@@ -38,10 +38,10 @@ void Room::setRandRoom() {
 
 bool Room::ChallengePlayerStat(Player* player) {
 	unsigned int challengeNumber{ player->roll(roomNumber) };
-	cout << "Player needs to roll: " << challengeNumber << " in " <<StatChallengeType<<endl;
+	cout << "\tPlayer needs to roll: " << challengeNumber << " in " <<StatChallengeType<<endl;
 
 	unsigned int PlayerRoll{ player->roll(player->getStat(StatChallengeType)) };
-	cout << "Player rolled: " << PlayerRoll << " and ";
+	cout << "\tPlayer rolled: " << PlayerRoll << " and ";
 
 	if (PlayerRoll >= challengeNumber) {
 		cout << "succeeded!" << endl;

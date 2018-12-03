@@ -109,8 +109,8 @@ Inventory* Player::getSpellBag(){
 string Player::toString() const {
 	ostringstream output;
 	output << Stats::toString()
-		<< "Attacks with: " << attackingDefendingStats[attackingStat] << endl
-		<< "Defends with: " << attackingDefendingStats[defendingStat] << endl;
+		<< "\tAttacks with: " << attackingDefendingStats[attackingStat] << endl
+		<< "\tDefends with: " << attackingDefendingStats[defendingStat] << endl;
 	if (curArmor != nullptr) {
 		output << "Current Armor: " << curArmor->getName() << endl;
 	}
