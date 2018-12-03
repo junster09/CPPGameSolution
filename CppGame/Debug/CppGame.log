@@ -2,5 +2,5 @@
   Player.cpp
   Room.cpp
   Generating Code...
-c:\users\aj\desktop\cppgamesolution\cppgame\room.cpp(82): warning C4715: 'Room::RoomAction': not all control paths return a value
-  CppGame.vcxproj -> C:\Users\aj\Desktop\CppGameSolution\Debug\CppGame.exe
+c:\users\aartuz\desktop\cppgamesolution\cppgame\room.cpp(82): warning C4715: 'Room::RoomAction': not all control paths return a value
+  CppGame.vcxproj -> C:\Users\aArtuz\Desktop\CppGameSolution\Debug\CppGame.exe

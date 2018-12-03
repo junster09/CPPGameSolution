@@ -103,3 +103,20 @@ const unsigned int Stats::getAttacking() {return attackingStat;}
 const unsigned int Stats::getDefending() {return defendingStat;}
 void Stats::setAttackingStat(unsigned int a) { attackingStat = a; }
 void Stats::setDefendingStat(unsigned int d) { defendingStat = d; }
+
+const string Stats::getNameOfStat(unsigned int selector) {
+	switch (selector) {
+	case 1://its speed
+		return "Speed";
+		break;
+	case 2://its wit
+		return "Wit";
+		break;
+	case 3://its brawn
+		return "Brawn";
+		break;
+	default:
+		return ":B:roke";
+	}
+
+}

@@ -10,22 +10,23 @@ public:
 		return FirstItem == nullptr; //if true, then its empty
 	}
 
-	Item& GetItemByName(string name) {
+	Item* GetItemByName(string name) {
 		if (isEmpty()) {
-			return *LastItem;
+			return FirstItem;
 		}
 		CurItem = FirstItem;
+
 		while (CurItem != nullptr) {
 			if (CurItem->getName() == name) {
-				return *CurItem;
+				return CurItem;
 			}
 			else {
 				CurItem = CurItem->getNextItemPtr();
 			}
 
 		}
-		cout << "Could not find item of name: " << name << "Please try again";
-		return *LastItem;
+		cout << "Could not find item of name: " << name << " Please try again";
+		return nullptr;
 	}
 
 	void display() {

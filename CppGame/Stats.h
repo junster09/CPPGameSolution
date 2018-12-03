@@ -40,6 +40,8 @@ public:
 	const unsigned int getDefending();
 	void setDefendingStat(unsigned int);
 
+	const std::string getNameOfStat(unsigned int);
+
 protected:
 	std::string name;
 	unsigned int hp; //hit point / health

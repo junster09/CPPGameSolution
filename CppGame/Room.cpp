@@ -38,7 +38,7 @@ void Room::setRandRoom() {
 
 bool Room::ChallengePlayerStat(Player* player) {
 	unsigned int challengeNumber{ player->roll(roomNumber) };
-	cout << "Player needs to roll: " << challengeNumber << " in " <<StatChallengeType<<endl;
+	cout << "Player needs to roll: " << challengeNumber << " in " <<player->getNameOfStat(StatChallengeType)<<endl;
 
 	unsigned int PlayerRoll{ player->roll(player->getStat(StatChallengeType)) };
 	cout << "Player rolled: " << PlayerRoll << " and ";
