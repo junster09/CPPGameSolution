@@ -26,11 +26,11 @@ void Spellcard::setRandSpell() {
 	size_t randIndex = (rand() % 14);
 
 	setType(spellType[randIndex]);
-	//setName(spellNames[randIndex]);
-	//setBlurb(spellBlurb[randIndex]);
+	setName(spellNames[randIndex]);
+	setBlurb(spellBlurb[randIndex]);
 }
 
 void Spellcard::SpellToString() {
-	//toString();
+	toString();
 	cout << "Type: " << getType();
 }
