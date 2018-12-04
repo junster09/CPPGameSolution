@@ -91,7 +91,6 @@ void Player::changeStats(Item& item, bool isAdding) {
 		if (item.getStat(3) >= b) { b = 0; }
 		else { b -= item.getStat(3); }
 	}
-
 }
 
 void Player::showInventory() {
