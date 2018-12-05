@@ -7,16 +7,16 @@ using namespace std;
 string itemNames[10] = { "Normal Armor", "Stick", 
 "Dark Armor", "Big Stick", "An Armor", "An Sword", "thingy", "thingy2", "thingy3", "thingy4" };
 
-string itemBlurb[10] = { "Normal Armor: an armor made of mesh or something",
-"Stick: a slightly sharp stick you found off of the ground", 
-"Dark Armor: its like normal armor, but painted black", 
-"Big Stick: a slightly bigger stick you found off of the ground, its not particularly better than a stick", 
-"An Armor: its armor, it doesn't look and or smell good", 
-"An Sword: its a sword you found off the ground, it doesn't look or smell good", 
-"thingy: something that you found on the ground, it looks cool at least", 
-"thingy2: something that you found on the ground, it smells good at least", 
-"thingy3: something that you found on the ground, it makes a pleasant sound", 
-"thingy4: something that you found on the ground, it tastes like strawberries" };
+string itemBlurb[10] = { "\n\tNormal Armor: an armor made of mesh or something",
+"\n\tStick: a slightly sharp stick you found off of the ground", 
+"\n\tDark Armor: its like normal armor, but painted black", 
+"\n\tBig Stick: a slightly bigger stick you found off of the ground, its not particularly better than a stick", 
+"\n\tAn Armor: its armor, it doesn't look and or smell good", 
+"\n\tAn Sword: its a sword you found off the ground, it doesn't look or smell good", 
+"\n\tthingy: something that you found on the ground, it looks cool at least", 
+"\n\tthingy2: something that you found on the ground, it smells good at least", 
+"\n\tthingy3: something that you found on the ground, it makes a pleasant sound", 
+"\n\tthingy4: something that you found on the ground, it tastes like strawberries" };
 
 bool itemTemp[10] = { false,false,false,false,false,false,true,true,true,true };
 

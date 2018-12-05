@@ -25,13 +25,13 @@ public:
 			}
 
 		}
-		cout << "Could not find item of name: " << name << " Please try again";
+		cout << "\n\tCould not find item of name: " << name << " Please try again";
 		return nullptr;
 	}
 
 	void display() {
 		if (isEmpty()) {
-			cout << "Inventory is currently empty";
+			cout << "\n\tInventory is currently empty";
 		}
 
 		CurItem = FirstItem;
@@ -39,7 +39,7 @@ public:
 
 		while (CurItem != nullptr) {
 			if (i % 3 == 0) {
-				cout << "\n";
+				cout << "\n\t";
 			}
 
 			cout << CurItem->getName() << "  ";

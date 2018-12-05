@@ -29,14 +29,14 @@ void Player::addToSpells(Spellcard spell) {
 
 void Player::equip(Item& item) {
 	if (item.getType() == "item") {
-		cout << "\nItem Equipped!";
+		cout << "\n\tItem Equipped!";
 		changeStats(item, true);
 	}
 	else if ((item.getType() == "armor" && !equippedArmor)) {
 		changeStats(item, true);
 		defendingStat = item.getDefending();
 		curArmor = &item;
-		cout << "\nArmor Equipped!";
+		cout << "\n\tArmor Equipped!";
 		equippedArmor = true;
 	}
 	else if ((item.getType() == "weapon" && !equippedWeapon)) {
@@ -44,10 +44,10 @@ void Player::equip(Item& item) {
 		attackingStat = item.getAttacking();
 		equippedWeapon = true;
 		curWeapon = &item;
-		cout << "\nWeapon Equipped!";
+		cout << "\n\tWeapon Equipped!";
 	}
 	else {
-		cout << "\nUnable to equip type: " << item.getType() << " try unequipping an item first.\n";
+		cout << "\n\tUnable to equip type: " << item.getType() << " try unequipping an item first.\n";
 	}
 
 	if (item.getTemp() == true) {

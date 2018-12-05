@@ -29,7 +29,7 @@ void Stats::setStat(unsigned int selector, unsigned int change) {
 		b = change;
 		break;
 	default:
-		cout << "Setter machine broke";//it :b:roke
+		cout << "\n\tSetter machine broke";//it :b:roke
 	}
 }
 
@@ -46,7 +46,7 @@ const unsigned int Stats::getStat(unsigned int selector) {
 		break;
 	default:
 		return 0;
-		cout << "getter machine broke";//it :b:roke
+		cout << "\n\tgetter machine broke";//it :b:roke
 	}
 }
 
@@ -75,13 +75,13 @@ void Stats::setIsDead(bool Dead) { isDead = Dead; }
 
 void Stats::dealDamage(Stats& target) {
 	unsigned int damage = roll(getStat(attackingStat));
-	cout << endl << name << " attacks for: " <<damage<< " damage\n";
+	cout << endl << "\t" << name << " attacks for: " <<damage<< " damage\n";
 	target.takeDamage(damage);
 }
 
 void Stats::takeDamage(unsigned int damage) {
 	unsigned int defendRoll = roll(getStat(defendingStat));
-	cout << endl << name << " mitigates for: " << defendRoll << " damage\n";
+	cout << endl << "\t" << name << " mitigates for: " << defendRoll << " damage\n";
 	if (damage <= defendRoll) {
 		damage = 0;
 	}
@@ -93,7 +93,7 @@ void Stats::takeDamage(unsigned int damage) {
 
 	if (damage >= hp) {
 		isDead = true;
-		cout << "\t and died";
+		cout << " and died";
 		hp = 0;
 	}
 	else {
