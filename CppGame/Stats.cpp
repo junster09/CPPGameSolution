@@ -75,11 +75,13 @@ void Stats::setIsDead(bool Dead) { isDead = Dead; }
 
 void Stats::dealDamage(Stats& target) {
 	unsigned int damage = roll(getStat(attackingStat));
+	cout << endl << name << " attacks for: " <<damage<< " damage\n";
 	target.takeDamage(damage);
 }
 
 void Stats::takeDamage(unsigned int damage) {
 	unsigned int defendRoll = roll(getStat(defendingStat));
+	cout << endl << name << " mitigates for: " << defendRoll << " damage\n";
 	if (damage <= defendRoll) {
 		damage = 0;
 	}
@@ -90,6 +92,7 @@ void Stats::takeDamage(unsigned int damage) {
 	cout << "\n\t" << name << " took " << damage << " damage!";
 
 	if (damage >= hp) {
+		isDead = true;
 		cout << "\t and died";
 		hp = 0;
 	}

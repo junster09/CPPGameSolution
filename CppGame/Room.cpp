@@ -4,9 +4,12 @@
 
 using namespace std;
 
-string roomNames[10] = { "My Room", "2", "3", "4", "5", "6", "7", "8", "9", "Bobs" };
+string roomNames[10] = { "A room", "Citadel", "Cathedral", "Bar", "placeholder"
+, "Empty Room", "Bathroom", "Library", "Probably not Witch's chamber", "Bobs" };
 
 unsigned int StatsTypeRooms[10] = { 1, 2, 3, 1, 2, 3, 1, 1, 1, 1 };
+
+unsigned int RoomsChallengeType[10] = { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
 
 void Room::setNumber(int Number) { 
 	roomNumber = Number;
@@ -30,8 +33,9 @@ void Room::toString() {
 }
 
 void Room::setRandRoom() {
-	size_t randRoom = (rand() % 10);
+	unsigned int randRoom = (rand() % 10);
 	setRandName(randRoom);
+	ChallengeType = RoomsChallengeType[randRoom];
 	StatChallengeType = StatsTypeRooms[randRoom];
 
 }
@@ -55,7 +59,7 @@ bool Room::ChallengePlayerStat(Player* player) {
 }
 
 void Room::RewardPlayer(Player* player) {
-	player->getItemBag()->AddNewRandomItem();
+	player->getItemBag()->AddNewRandomItem(roomNumber);
 }
 
 Room& Room::operator++() {
@@ -73,6 +77,23 @@ bool Room::RoomAction(Player* player) {
 		}
 		break;
 	
+	case 2: //Enemy room
+		Enemy enemy;
+		enemy.setRandEnemyByRoom(roomNumber);
+		cout<<enemy.toString();
+		cout <<endl << enemy.getName() << " has appeared\n";
+		while (!enemy.getIsDead() && !player->getIsDead()) {
+			player->dealDamage(enemy);
+			if (enemy.getIsDead()) {
+				RewardPlayer(player);
+				return true;
+			}
+			enemy.dealDamage(*player);
+		}
+		if (player->getIsDead()) {
+			return false;
+		}
+		break;
 	
 
 	}

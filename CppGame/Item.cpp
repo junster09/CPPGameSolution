@@ -67,6 +67,13 @@ void Item::setRandItem() {
 	setDefendingStat(StatsType[randIndex]);
 }
 
+void Item::setRandStatsByRoom(unsigned int room) {
+	setHP(((rand() % 10 + 10)*room));
+	setStat(1, ((rand() % 3 + 1)*room));
+	setStat(2, ((rand() % 3 + 1)*room));
+	setStat(3, ((rand() % 3 + 1)*room));
+}
+
 string Item::toString() const {
 	ostringstream output;
 	output <<"\n"<< Stats::toString()<<"Is Consumable: " << stringTemp() << endl

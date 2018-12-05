@@ -22,6 +22,8 @@ public:
 
 	void setRandItem();
 
+	void setRandStatsByRoom(unsigned int);
+
 	virtual std::string toString() const override;
 
 	Item* getNextItemPtr() const;

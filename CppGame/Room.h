@@ -1,6 +1,7 @@
 #ifndef ROOM_H
 #define ROOM_H
 #include "Player.h"
+#include "Enemy.h"
 
 class Room {
 public:

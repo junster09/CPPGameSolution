@@ -50,8 +50,9 @@ public:
 		}
 	}
 
-	void AddNewRandomItem() {
+	void AddNewRandomItem(unsigned int roomNumber) {
 		Item* newItem = new Item();
+		newItem->setRandStatsByRoom(roomNumber);
 		if (isEmpty()) {
 			FirstItem = LastItem = newItem;//If empty, therefore the new is the beggining, and the begginning is the end
 		}
@@ -76,7 +77,6 @@ public:
 		}
 
 	}
-	//void AddNewItem() {}
 
 
 private:

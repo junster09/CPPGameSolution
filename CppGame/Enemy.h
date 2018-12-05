@@ -13,6 +13,7 @@ public:
 	}
 
 	void setRandEnemy();
+	void setRandEnemyByRoom(unsigned int);
 };
 
 #endif ENEMY_H

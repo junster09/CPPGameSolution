@@ -30,6 +30,7 @@ public:
 	virtual std::string toString() const;
 
 	void setIsDead(bool);
+	bool getIsDead() { return isDead; }
 
 	void dealDamage(Stats&);
 

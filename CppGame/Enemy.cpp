@@ -4,7 +4,8 @@
 
 using namespace std;
 
-string enemyNames[10] = { "witch", "..." };
+string enemyNames[10] = { "witch", "librarian","bob","skeleton","goblin",
+"floating Head","Not A Floating Head","something","placeholder","notBob" };
 
 string enemyBlurb[10] = { "this is a witch!", "..." }; //matches indexes of enemy names
 
@@ -18,4 +19,12 @@ void Enemy::setRandEnemy() {
 	setBlurb(enemyBlurb[randEnemy]);
 	setAttackingStat(StatsTypeEnemyA[randEnemy]);
 	setDefendingStat(StatsTypeEnemyD[randEnemy]);
+}
+
+void Enemy::setRandEnemyByRoom(unsigned int room) {
+	setRandEnemy();
+	setHP(((rand() % 10 + 10)*room));
+	setStat(1, ((rand() % 3 + 1)*room));
+	setStat(2, ((rand() % 3 + 1)*room));
+	setStat(3, ((rand() % 3 + 1)*room));
 }
